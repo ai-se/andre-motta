@@ -10,8 +10,12 @@
 
 `mainNews = soup.findAll("h2", {"class": "title"})`
 
+`secondaryNews = soup.findAll("h3", {"class": "title"})`
+
+`otherNews = soup.findAll("h4", {"class": "title"})`
+
 `relatedNews = soup.findAll("li", {"class":"related-item"})`
 
 `links = []
-for item in news:
+for item in eachNewsSource:
     links.append(item.findAll('a', href=True)[0]['href'])`
