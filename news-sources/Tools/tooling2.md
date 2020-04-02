@@ -17,5 +17,7 @@
 `relatedNews = soup.findAll("li", {"class":"related-item"})`
 
 `links = []
+
 for item in eachNewsSource:
+
     links.append(item.findAll('a', href=True)[0]['href'])`
