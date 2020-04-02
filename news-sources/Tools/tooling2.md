@@ -20,4 +20,4 @@
 
 `for item in eachNewsSource:`
 
-    `links.append(item.findAll('a', href=True)[0]['href'])`
+`    links.append(item.findAll('a', href=True)[0]['href'])`
