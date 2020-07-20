@@ -14,7 +14,7 @@ The thing is that this paper only works for a singular expert. Not to amass the 
 
 ## Lit Review
 
-Underway, there are not many relevant papers in the area and I haven't found one that does multiple human in the loop
+Underway, there are not many relevant papers in the area and I haven't found any yet that does multiple humans in the loop dealing with conflicting knowledge.
 
 
 ## Code:
@@ -35,8 +35,8 @@ Currently on the way (Under development):
     * Include the weight measured by humans
     * Include some form of nlp over description text of the feature
 * User Interface:
-    * Define how to make the question to the user
-    * Define how to reflect the input of the user on the tree
+    * Define how to make the question to a user
+    * Define how to reflect the input of a user on the tree (How to adjust weights on conflicting knowledge)
     * Prototype in Console App
     * Application on some platform (Web / Desktop app)
 
