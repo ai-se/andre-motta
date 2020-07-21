@@ -45,12 +45,12 @@ Currently on the way (Under development):
 Scrum Product Line 
 
 * Map features to description
-* Verify for Key features
+* Verify for Key features [https://arxiv.org/pdf/1702.05568.pdf]
 
 Look for other databases in splot of products that make sense. SE area products
 
 * Map features to description
-* Verify for Key features
+* Verify for Key features [https://arxiv.org/pdf/1702.05568.pdf]
 
 ## Run the experiments
 
