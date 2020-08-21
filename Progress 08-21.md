@@ -32,7 +32,7 @@ In addition, we speculate that incorporating expert knowledge into search in iSB
 ## Hard vs Soft decisions
 
 It seems that working on Soft decisions creates room for many problems down the line. The main advantage of using a dendrogram (Tree Cluster) 
-would be the fact that you can eliminate many options by simply asking questions about one node. By using soft goals we lose that advantage since a question does not necessarily wipe out
+would be the fact that you can eliminate many options by simply asking questions about one node. By using soft goals we lose that advantage, since a question does not necessarily wipe out
 anything from the tree. The search becomes then almost linear `O(n)` to the number of tree nodes (discounting leaves) instead of operating in `O(log(n))`.
 
 The code is being rewritten to now use hard decisions. This would allow for exploiting the most important feature of the dendogram. By making a decision we can effectively stop searching at any nodes contrary to the decision made beforehand.
