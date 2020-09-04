@@ -13,6 +13,8 @@ Currently Reading through Results.md files
 Coccicheck is working and we are able to find the same bugs from the file provided running coccicheck on the kernel. 
 We are also able to run coccicheck on the Zephyr code.
 
+There are some bugs in the coccicheck code for linux. But the fix is simple. Need to pass it to Sherry!
+
 ## PhD
 
 Code is now rewritten. Wasn't able to run the experiment yet. Should have results by monday.
