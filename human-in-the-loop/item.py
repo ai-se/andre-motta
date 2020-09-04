@@ -1,6 +1,8 @@
 import secrets
 import math
 import numpy as np
+import random
+NUM_FEATURES = 124
 
 
 class Item:
@@ -12,6 +14,9 @@ class Item:
     min_known = math.inf
     max_featuresused = -math.inf
     min_featuresused = math.inf
+    costs = [secrets.randbelow(10) for _ in range(NUM_FEATURES)]
+    defective = [bool(random.getrandbits(1) for _ in range(NUM_FEATURES))]
+    used = [bool(random.getrandbits(1) for _ in range(NUM_FEATURES))]
 
     def __init__(self, item):
         self.r = -1
@@ -19,9 +24,9 @@ class Item:
         self.theta = -1
         self.item = item
         self.features = sum(item)
-        self.totalcost = secrets.randbelow(100)
-        self.knowndefects = secrets.randbelow(100)
-        self.featuresused = secrets.randbelow(self.features)
+        self.totalcost = sum(np.multiply(item, self.costs))
+        self.knowndefects = sum(np.multiply(item, self.defective))
+        self.featuresused = sum(np.multiply(item, self.used))
 
     @staticmethod
     def calc_staticfeatures(items):

@@ -35,7 +35,7 @@ def split_bin(items, total_group):
     R = set([r.r for r in items])
     for k in R:
         g = [item for item in items if item.r == k]
-        g.sort(key=lambda x: x.d, reverse=True)
+        g.sort(key=lambda z: z.d, reverse=True)
         for i in range(len(g)):
             g[i].theta = (2 * math.pi * (i + 1)) / len(g)
     thk = max_r / total_group
