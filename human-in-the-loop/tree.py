@@ -5,7 +5,7 @@ import numpy as np
 class TreeNode:
     _ids = count(0)
 
-    def __init__(self, east, west, east_node, west_node):
+    def __init__(self, east, west, east_node, west_node, leaf):
         self.id = next(self._ids)
         self.east = east
         self.west = west
@@ -14,8 +14,9 @@ class TreeNode:
         self.east_node = east_node
         self.west_node = west_node
         self.score = 0
-        self.weight = 0.5
+        self.weight = 1
         self.asked = 0
+        self.leaf = leaf
 
     def difference(self):
         w = np.array(self.west[0].item)

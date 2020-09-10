@@ -22,7 +22,7 @@ class Ranker:
                 q.append([p[0].west_node, p[1] + 1])
             if p[0].east_node:
                 q.append([p[0].east_node, p[1] + 1])
-        #print(np.sum([1 for x in items_rank if x > 0]), "Total number of important questions")
+        print(int(np.sum([1 for x in items_rank if x > 0])), "Total number of important questions")
         return items_rank
 
     @staticmethod
@@ -37,7 +37,7 @@ class Ranker:
             if p[0].west is not None and p[0].east is not None:
                 diff = p[0].diff_array()
                 res = np.multiply(diff, rank)
-                p[0].score = np.sum(res) * p[0].weight / (p[0].asked+1)
+                p[0].score = (np.sum(res) * p[0].weight) / np.sum(diff)
                 if p[0].score > largest:
                     largest = p[0].score
             if p[0].west_node:
@@ -65,16 +65,21 @@ class Ranker:
 
     @staticmethod
     def check_solution(root):
+        count = 0
         if not root:
             return
         q = [[root, 1]]
         while len(q):
             p = q[0]
             q.pop(0)
-            if p[0].weight > THRESHOLD:
-                return p[0].score
+            if p[0].weight == 1 and p[0].leaf:
+
+                count += 1
             if p[0].west_node:
                 q.append([p[0].west_node, p[1] + 1])
             if p[0].east_node:
                 q.append([p[0].east_node, p[1] + 1])
+        print("Count =", count)
+        if count == 1:
+            return 1
         return None

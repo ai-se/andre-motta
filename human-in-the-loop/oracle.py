@@ -11,7 +11,7 @@ class Oracle:
         west_points = 0
         east_points = 0
         # Check how many of these questions I have picked before
-        for i in range(min(len(q_idx), 4)):
+        for i in range(len(q_idx)):
             if node.east[0].item[q_idx[i]] and self.picked[q_idx[i]] == 1:
                 east_points += 1
             elif node.west[0].item[q_idx[i]] and self.picked[q_idx[i]] == 1:
