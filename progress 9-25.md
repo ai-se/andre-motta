@@ -4,7 +4,7 @@
 
 After running the recursive split algorithm on the tree asking the relevant questions we select the optimal answer between the ones pre-approved by the user. This is done by selecting the minimum scoring answer to the following minimization equation.
 
-* (totalCost)<sup>2</sup> + (knownDefects)<sup>2</sup> + (124 - featuresPreviouslyUsed)<sup>2</sup> + 1.5*(100 - x.selectedPoints)<sup>2</sup>
+* (totalCost)<sup>2</sup> + (knownDefects)<sup>2</sup> + (124 - featuresPreviouslyUsed)<sup>2</sup> + 1.5*(100 - selectedPoints)<sup>2</sup>
 
 This in turn is compared to all the solutions available in the search space. And we extract the percentile of our solution compared to the entire search space.
 
