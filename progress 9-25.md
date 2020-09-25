@@ -28,3 +28,10 @@ The mistake was not include the same equation as the optimization factor, modifi
 
 3 - After the reproduction code is complete. Compare the solutions.
 * Since the paper produces only 1 solution at the end we could compare the minimization properties of that solution against the initial generated population. Or we can run Cohen's d test to validate it.
+
+
+
+
+## Normalization 
+
+Use Nsga-II, moea/d
