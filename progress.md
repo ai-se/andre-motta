@@ -1,72 +1,27 @@
-# ICSE Paper Progress
+# Progress
 
-## Finding Baseline
+## Algorithm Results
 
-Currently working on reproducing the following paper:
+After running the recursive split algorithm on the tree asking the relevant questions we select the optimal answer between the ones pre-approved by the user. This is done by selecting the minimum scoring answer to the following minimization equation.
 
+* (totalCost)<sup>2</sup> + (knownDefects)<sup>2</sup> + (124 - featuresPreviouslyUsed)<sup>2</sup> + 1.5*(100 - x.selectedPoints)<sup>2</sup>
+
+This in turn is compared to all the solutions available in the search space. And we extract the percentile of our solution compared to the entire search space.
+
+This processed was repeated 20 times and I ran a scott-knott test on the results.
+
+`Score (*------------------------|------------------------), 0.010,  0.010,  0.010,  0.015,  0.015`
+
+This in turn means that our solution is on the bottom 1% percentile in this minimization task.
+
+
+## Next Step
+
+1 - Sort out the errors in PyGMO on reproducing:
 * An Architecture based on interactive optimization and machine learning applied to the next release **problem**
 
-This paper uses genetic algorithms to create solutions for the NRP (next release problem) which is a very similar problem to the product lines one.
+2 - Find authoritative statements comparing the two problems (NRP and Product Lines).
+* Hopefully find something that argues their similarity.
 
-They use humans in the loop to score generated candidates and build a database of human evaluation to train a machine learning algorithm to eventually substitute the human. This machine learning would be suited for the opinions on that specific user.
-
-The thing is that this paper only works for a singular expert. Not to amass the knowledge of multiple experts onto a product line / next release
-
-## Lit Review
-
-Underway, there are not many relevant papers in the area and I haven't found any yet that does multiple humans in the loop dealing with conflicting knowledge.
-
-
-## Code:
-
-Currently the code base can:
-
-* Generate N unique solutions for the problem based it is on .dimacs format
-* Generate the tree of options based on N unique solutions, we can determine the size of the leaves.
-* We can walk through the tree of options
-* We can determine which is the best node to be examined considering east/west pair under some criteria. Currently most subtress & less difference.
-
-Currently on the way (Under development):
-
-* Oracle: Need better definition on how to generate this scoring oracle and if possible include the randomized parameters for each node:
-    * Total Cost (Cost of the option)
-    * Known Defects (Previous Knowledge about option settings defects)
-    * Features Used (Features used in previous scenarios)
-    * Include the weight measured by humans
-    * Include some form of nlp over description text of the feature
-* User Interface:
-    * Define how to make the question to a user
-    * Define how to reflect the input of a user on the tree (How to adjust weights on conflicting knowledge)
-    * Prototype in Console App
-    * Application on some platform (Web / Desktop app)
-
-## Case Material
-
-Scrum Product Line 
-
-* Map features to description
-* Verify for Key features [https://arxiv.org/pdf/1702.05568.pdf]
-
-Look for other databases in splot of products that make sense. SE area products
-
-* Map features to description
-* Verify for Key features [https://arxiv.org/pdf/1702.05568.pdf]
-
-## Run the experiments
-
-We still need to finish the interface and oracle before running the experience. Also the criteria for determining the best node to be examined.
-
-At the end it is a search problem in a huge space.
-
-## Questions from want.txt
-
--   Can you now walk a tree of options for an agile project? 
-    -   Yes
-
--   Can you build an oracle where at every level the options at each half can be score by some oracle 
-    (e.g. sentiment analysis based background text from the scrum manual, from the project requirements). 
-    - We need a better definition on what to include in the oracle
-    
--   Do you have an interface where we can put humans  in front of it? 
-        I can get you your humans if you have that interface.  
-    - Not yet.
+3 - After the reproduction code is complete. Compare the solutions.
+* Since the paper produces only 1 solution at the end we could compare the minimization properties of that solution against the initial generated population. Or we can run Cohen's d test to validate it.
