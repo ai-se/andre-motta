@@ -18,6 +18,9 @@ This in turn means that our solution is on the bottom 1% percentile in this mini
 ## Next Step
 
 1 - Sort out the errors in PyGMO on reproducing:
+
+The mistake was not include the same equation as the optimization factor, modified to be applicable to the features themselves. Since with that we need a different way to write the same equation. So the algorithm was never converging.
+
 * An Architecture based on interactive optimization and machine learning applied to the next release **problem**
 
 2 - Find authoritative statements comparing the two problems (NRP and Product Lines).
