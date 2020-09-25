@@ -32,6 +32,7 @@ The mistake was not include the same equation as the optimization factor, modifi
 
 
 
-## Normalization 
+## Genetic Algorithm 
 
-Use Nsga-II, moea/d
+* Do not use Nsga-II,
+* Use moea/d
