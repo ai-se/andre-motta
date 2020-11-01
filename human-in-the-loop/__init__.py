@@ -14,7 +14,7 @@ for i in range(20):
         path, node = m.find_node()
         # print("Node id =", node.id)
         q_idx = m.pick_questions(node)
-        # m.ask_questions(q_idx, node)
+        m.ask_questions(q_idx, node)
         for q in q_idx:
             first_qidx.add(q)
         asked += 1
