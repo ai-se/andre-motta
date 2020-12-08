@@ -15,7 +15,7 @@ INCREASE_FACTOR = 1.1
 class Method:
     def __init__(self):
         names, cnf = IO.read_dimacs('Scrum.dimacs')
-        self.items = SATSolver.get_solutions(10000, cnf)
+        self.items = SATSolver.get_solutions(100000, cnf)
         self.weights = [1] * len(self.items)
         self.tree = sway(self.items, 100)
         self.names = names

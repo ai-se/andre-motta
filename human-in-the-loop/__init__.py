@@ -41,6 +41,12 @@ for i in range(20):
 
 df = pd.DataFrame(
     {
-     'Score': scores
+        'Asked': a,
+        'User Picked': p,
+        'Cost': c,
+        'Selected Points': s,
+        'Known Defects': d,
+        'Features Used': u,
+        'Score': scores
      }).T
 df.to_csv('experiment.csv')
