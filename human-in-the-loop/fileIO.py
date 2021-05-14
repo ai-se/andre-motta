@@ -8,9 +8,9 @@ class IO:
         file = open(filename)
         lines = file.readlines()
         names = []
-        for line in lines[:124]:
+        for line in lines[:1044]:
             names.append(line.split(' ')[2][:-1])
-        dimacs = lines[125:]
+        dimacs = lines[1045:]
         cnf = [[int(s) for s in line.split(' ') if int(s) != 0] for line in dimacs]
         return names, cnf
 

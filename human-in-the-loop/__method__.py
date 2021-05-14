@@ -5,6 +5,7 @@ from tree_cluster import sway
 from ranker import Ranker
 from search import Search
 import math
+import sys
 import numpy as np
 
 QUESTION_IMPORTANCE_DECAY_FACTOR = 0.1
@@ -13,12 +14,14 @@ INCREASE_FACTOR = 1.1
 
 
 class Method:
-    def __init__(self):
-        names, cnf = IO.read_dimacs('Scrum.dimacs')
-        self.items = SATSolver.get_solutions(100000, cnf)
+    def __init__(self, filename):
+        x = 5000
+        sys.setrecursionlimit(x)
+        #names, cnf = IO.read_dimacs('SPLOT-3CNF-FM-500-50-1.00-SAT-10')
+        self.items = SATSolver.get_solutions(10000, filename)
         self.weights = [1] * len(self.items)
         self.tree = sway(self.items, 100)
-        self.names = names
+        self.names = [] #names
         # Weight of top node = 0
         # self.tree.weight = 0
         self.rank = Ranker.level_rank_features(self.tree, self.weights)
@@ -122,7 +125,6 @@ class Method:
 
     def check_solution(self):
         if sum(self.rank) == 0:
-            print("WE FOUND THE LEAVES BROTHER")
             return Search.get_all_items(self.tree)
         value = Ranker.check_solution(self.tree)
         if value is None:

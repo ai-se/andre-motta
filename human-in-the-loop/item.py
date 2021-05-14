@@ -2,7 +2,7 @@ import secrets
 import math
 import numpy as np
 import random
-NUM_FEATURES = 124
+NUM_FEATURES = 1044
 
 
 class Item:
@@ -15,6 +15,8 @@ class Item:
     max_featuresused = -math.inf
     min_featuresused = math.inf
     costs = [secrets.randbelow(10) for _ in range(NUM_FEATURES)]
+    print(costs)
+
     defective = [bool(secrets.randbelow(2)) for _ in range(NUM_FEATURES)]
     used = [bool(secrets.randbelow(2)) for _ in range(NUM_FEATURES)]
 
